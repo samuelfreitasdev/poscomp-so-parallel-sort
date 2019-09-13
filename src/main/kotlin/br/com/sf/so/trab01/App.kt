@@ -9,7 +9,7 @@ import java.time.Instant
 import java.util.*
 import java.util.concurrent.Semaphore
 
-class App {
+public class App {
 
     private val semaphore = Semaphore(1)
     private val list = LinkedList()
@@ -32,10 +32,7 @@ class App {
         println("The sorting takes $timeElapsed Milliseconds.")
 
         println("Writing sorted numbers in a file")
-        DataWriter(
-            "result-with-$availableThreads-threads.txt",
-            list
-        ).write()
+        DataWriter("output.tx", list).write()
 
         println("================================")
         println()
@@ -53,31 +50,33 @@ class App {
 
     companion object {
         const val FILES_NUMBER = 10
+
+        @JvmStatic
+        fun main(args: Array<String>) {
+            println("Starting...")
+
+//            println("Should generate files(S or N)? ")
+//            if (readLine().equals("S", true)) {
+//                print("Type the entries amount per file: ")
+//                val amount = readLine()
+//
+//                AppDataGenerator().generate(amount!!.toInt())
+//            }
+
+            val reportData = ArrayList<Pair<Int, Long>>()
+            for (availableThreads in 0..20) {
+                reportData.add(Pair(availableThreads, App().run(availableThreads)))
+            }
+
+            println("REPORT\n")
+            println(String.format("%10s | %s ", "Threads", "Duration"))
+            for (data in reportData) {
+                println(String.format("%10d | %5d ms ", data.first, data.second))
+            }
+        }
+
     }
 }
 
 //-Xmx1G -Xms1G -Xss1G
-fun main() {
-
-    println("Starting...")
-
-//    println("Should generate files(S or N)? ")
-//    if (readLine().equals("S", true)) {
-//        print("Type the entries amount per file: ")
-//        val amount = readLine()
-//
-//        AppDataGenerator().generate(amount!!.toInt())
-//    }
-
-    val reportData = ArrayList<Pair<Int, Long>>()
-    for (availableThreads in 0..13) {
-        reportData.add(Pair(availableThreads, App().run(availableThreads)))
-    }
-
-    println("REPORT\n")
-    println(String.format("%10s | %s ", "Threads", "Duration"))
-    for (data in reportData) {
-        println(String.format("%10d | %5d ms ", data.first, data.second))
-    }
-
-}
+//-Xss10M
