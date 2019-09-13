@@ -73,7 +73,7 @@ quantidades de threads a serem utilizadas.
 #### Instruções
 
 Adicionar uma lista de arquivos na pasta ./input com os valores que serão
- utilizados para popular a lista encadeada.
+ utilizados para popular a lista encadeada. O Formato do arquivo deverá ser de um valor por linha.
  
 O build pode ser feito com o commando ``./gradlew build``.
 A execução é feita com o comando ``./gradlew run``.
