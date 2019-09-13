@@ -10,8 +10,6 @@ applicationDefaultJvmArgs = ["-Xss10M"]
 group 'br.sf'
 version '1.0.0'
 
-//jvmArgs = '-Xss10M'
-
 repositories {
     mavenCentral()
 }
