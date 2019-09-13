@@ -6,6 +6,8 @@ package br.com.sf.so.trab01.collection
 class LinkedList {
     internal var head: Node? = null
 
+    var size = 0;
+
     // node a, b;
     class Node(var value: Int) {
         var next: Node? = null
@@ -20,6 +22,8 @@ class LinkedList {
 
         /* move the head to point to the new node */
         head = newNode
+
+        size = size.inc()
     }
 
     override fun toString(): String {
