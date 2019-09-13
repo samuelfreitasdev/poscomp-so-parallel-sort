@@ -7,7 +7,7 @@ class LinkedList {
     internal var head: Node? = null
 
     // node a, b;
-    internal class Node(var value: Int) {
+    class Node(var value: Int) {
         var next: Node? = null
     }
 
