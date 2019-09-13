@@ -3,6 +3,7 @@ package br.com.sf.so.trab01
 import br.com.sf.so.trab01.collection.LinkedList
 import br.com.sf.so.trab01.collection.sort.ParallelMergeSort
 import br.com.sf.so.trab01.data.DataReader
+import br.com.sf.so.trab01.data.DataWriter
 import java.time.Duration
 import java.time.Instant
 import java.util.*
@@ -29,6 +30,13 @@ class App {
         val end = Instant.now()
         val timeElapsed = Duration.between(start, end).toMillis()
         println("The sorting takes $timeElapsed Milliseconds.")
+
+        println("Writing sorted numbers in a file")
+        DataWriter(
+            "result-with-$availableThreads-threads.txt",
+            list
+        ).write()
+
         println("================================")
         println()
 
