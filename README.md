@@ -1,7 +1,7 @@
 # Trabalho de Sistemas Operacionais
 ##  Ordenação paralela de uma lista encadeada.
 
-### Ambiente
+### Ambiente de Desenvolvimento
 
 - S.O. Máquina MACOS High Sierra 10.13.6
 - Java 1.8
