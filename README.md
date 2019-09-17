@@ -70,7 +70,7 @@ quantidades de threads a serem utilizadas.
 - JDK 1.8
 - Gradle
 
-#### Instruções
+#### Instruções para Execução
 
 Adicionar uma lista de arquivos na pasta `./input` com os valores que serão
  utilizados para popular a lista encadeada. O Formato do arquivo deverá ser de um valor por linha.
@@ -79,3 +79,4 @@ O build pode ser feito com o commando ``./gradlew build``.
 A execução é feita com o comando ``./gradlew run``.
 
 Após a execução será criado um arquivo ``./output.txt`` com os valores ordenados.
+
